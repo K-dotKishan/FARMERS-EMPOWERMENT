@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IoT in Agriculture - FarmEmpower</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-green-600 text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <a href="../index.html" class="flex items-center space-x-3">
+                    <div class="bg-white w-12 h-12 rounded-full flex items-center justify-center relative">
+                        <div class="absolute inset-0 bg-gradient-to-br from-green-400 to-green-600 rounded-full opacity-20"></div>
+                        <i class="fas fa-leaf text-2xl text-green-600 transform -rotate-12"></i>
+                        <i class="fas fa-seedling text-xl text-green-500 absolute -bottom-1 -right-1"></i>
+                    </div>
+                    <div class="flex flex-col">
+                        <div class="text-2xl font-bold tracking-wide">FarmEmpower</div>
+                        <div class="text-xs text-green-200">Growing Together</div>
+                    </div>
+                </a>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="../index.html" class="hover:text-green-200 transition duration-300 flex items-center">
+                    <i class="fas fa-home mr-2"></i>
+                    <span id="nav-home">Home</span>
+                </a>
+                <a href="index.html#services" class="hover:text-green-200 transition duration-300 flex items-center">
+                    <i class="fas fa-cogs mr-2"></i>
+                    <span id="nav-services">Services</span>
+                </a>
+                <a href="index.html#about" class="hover:text-green-200 transition duration-300 flex items-center">
+                    <i class="fas fa-info-circle mr-2"></i>
+                    <span id="nav-about">About</span>
+                </a>
+                <a href="index.html#contact" class="hover:text-green-200 transition duration-300 flex items-center">
+                    <i class="fas fa-envelope mr-2"></i>
+                    <span id="nav-contact">Contact</span>
+                </a>
+                <div class="relative">
+                    <button id="lang-selector" class="hover:text-green-200 transition duration-300 flex items-center">
+                        <i class="fas fa-globe mr-2"></i>
+                        <span id="current-lang">English</span>
+                    </button>
+                    <div id="lang-dropdown" class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10 hidden">
+                        <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-green-100" data-lang="en">English</a>
+                        <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-green-100" data-lang="hi">हिंदी</a>
+                        <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-green-100" data-lang="pa">ਪੰਜਾਬੀ</a>
+                        <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-green-100" data-lang="ta">தமிழ்</a>
+                        <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-green-100" data-lang="te">తెలుగు</a>
+                    </div>
+                </div>
+            </div>
+            <button class="md:hidden" id="menu-btn">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="bg-green-600 text-white py-4 hidden md:hidden">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col space-y-4">
+                <a href="../index.html" class="hover:text-green-200 transition duration-300 flex items-center">
+                    <i class="fas fa-home mr-2"></i>
+                    <span id="mobile-nav-home">Home</span>
+                </a>
+                <a href="index.html#services" class="hover:text-green-200 transition duration-300 flex items-center">
+                    <i class="fas fa-cogs mr-2"></i>
+                    <span id="mobile-nav-services">Services</span>
+                </a>
+                <a href="index.html#about" class="hover:text-green-200 transition duration-300 flex items-center">
+                    <i class="fas fa-info-circle mr-2"></i>
+                    <span id="mobile-nav-about">About</span>
+                </a>
+                <a href="index.html#contact" class="hover:text-green-200 transition duration-300 flex items-center">
+                    <i class="fas fa-envelope mr-2"></i>
+                    <span id="mobile-nav-contact">Contact</span>
+                </a>
+                <div class="pt-2 border-t border-green-500">
+                    <div class="flex items-center mb-2">
+                        <i class="fas fa-globe mr-2"></i>
+                        <span>Language</span>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2">
+                        <button class="lang-option bg-green-700 py-2 px-3 rounded hover:bg-green-800 transition duration-300" data-lang="en">English</button>
+                        <button class="lang-option bg-green-700 py-2 px-3 rounded hover:bg-green-800 transition duration-300" data-lang="hi">हिंदी</button>
+                        <button class="lang-option bg-green-700 py-2 px-3 rounded hover:bg-green-800 transition duration-300" data-lang="pa">ਪੰਜਾਬੀ</button>
+                        <button class="lang-option bg-green-700 py-2 px-3 rounded hover:bg-green-800 transition duration-300" data-lang="ta">தமிழ்</button>
+                        <button class="lang-option bg-green-700 py-2 px-3 rounded hover:bg-green-800 transition duration-300" data-lang="te">తెలుగు</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Breadcrumb -->
+    <div class="bg-gray-100 py-3">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center text-sm text-gray-600">
+                <a href="../index.html" class="hover:text-green-600">Home</a>
+                <i class="fas fa-chevron-right mx-2 text-xs"></i>
+                <a href="modern-farming.html" class="hover:text-green-600">Modern Farming</a>
+                <i class="fas fa-chevron-right mx-2 text-xs"></i>
+                <span class="text-gray-800">IoT in Agriculture</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="relative bg-green-700 text-white py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6" id="hero-title">IoT in Agriculture</h1>
+            <p class="text-xl mb-8" id="hero-subtitle">Connected devices and sensors revolutionizing farming practices</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <!-- Video Section -->
+            <div class="max-w-4xl mx-auto mb-16">
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="relative pb-[56.25%] h-0">
+                        <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/pY_9TxAg95M" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="p-6">
+                        <h2 class="text-2xl font-bold mb-4">Introduction to IoT in Agriculture</h2>
+                        <p class="text-gray-600 mb-4">This video explains how Internet of Things (IoT) technology is transforming agriculture through connected devices, sensors, and automated systems.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Description Section -->
+            <div class="max-w-4xl mx-auto mb-16">
+                <div class="bg-white rounded-xl shadow-lg p-8">
+                    <h2 class="text-3xl font-bold mb-6">What is IoT in Agriculture?</h2>
+                    <p class="text-gray-600 mb-6">The Internet of Things (IoT) in agriculture refers to the use of connected devices, sensors, and automated systems to monitor and control farming operations. These technologies enable farmers to collect real-time data, automate processes, and make data-driven decisions to optimize crop production and resource management.</p>
+                    
+                    <h3 class="text-2xl font-bold mb-4">Key Components of IoT in Agriculture</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        <div class="bg-green-50 p-6 rounded-lg">
+                            <div class="text-green-600 text-3xl mb-4">
+                                <i class="fas fa-microchip"></i>
+                            </div>
+                            <h4 class="text-xl font-bold mb-2">Smart Sensors</h4>
+                            <p class="text-gray-600">Devices that measure soil moisture, temperature, humidity, light levels, and other environmental factors to provide real-time data for decision-making.</p>
+                        </div>
+                        <div class="bg-green-50 p-6 rounded-lg">
+                            <div class="text-green-600 text-3xl mb-4">
+                                <i class="fas fa-tint"></i>
+                            </div>
+                            <h4 class="text-xl font-bold mb-2">Automated Irrigation Systems</h4>
+                            <p class="text-gray-600">Smart irrigation controllers that adjust watering schedules based on soil moisture data, weather forecasts, and crop requirements.</p>
+                        </div>
+                        <div class="bg-green-50 p-6 rounded-lg">
+                            <div class="text-green-600 text-3xl mb-4">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <h4 class="text-xl font-bold mb-2">Mobile Applications</h4>
+                            <p class="text-gray-600">Apps that allow farmers to monitor their fields, control automated systems, and receive alerts from anywhere using their smartphones.</p>
+                        </div>
+                        <div class="bg-green-50 p-6 rounded-lg">
+                            <div class="text-green-600 text-3xl mb-4">
+                                <i class="fas fa-cloud"></i>
+                            </div>
+                            <h4 class="text-xl font-bold mb-2">Cloud Platforms</h4>
+                            <p class="text-gray-600">Data storage and analysis platforms that process information from sensors and provide insights to optimize farming operations.</p>
+                        </div>
+                    </div>
+
+                    <h3 class="text-2xl font-bold mb-4">Applications of IoT in Agriculture</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        <div>
+                            <h4 class="text-xl font-bold mb-2">Precision Farming</h4>
+                            <p class="text-gray-600 mb-4">IoT enables precision farming by providing detailed information about field conditions, allowing farmers to apply inputs (water, fertilizers, pesticides) only where needed.</p>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li>Variable rate application of inputs</li>
+                                <li>Soil and crop monitoring</li>
+                                <li>Yield mapping and analysis</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2">Smart Greenhouses</h4>
+                            <p class="text-gray-600 mb-4">Automated greenhouse systems that control temperature, humidity, lighting, and irrigation based on sensor data and crop requirements.</p>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li>Climate control automation</li>
+                                <li>Lighting management</li>
+                                <li>Nutrient delivery systems</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2">Livestock Monitoring</h4>
+                            <p class="text-gray-600 mb-4">IoT devices that track animal health, behavior, and location to improve livestock management and welfare.</p>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li>Health monitoring and early disease detection</li>
+                                <li>Behavioral analysis</li>
+                                <li>Location tracking</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2">Supply Chain Management</h4>
+                            <p class="text-gray-600 mb-4">IoT solutions that track agricultural products from farm to market, ensuring quality and reducing waste.</p>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li>Temperature monitoring during transport</li>
+                                <li>Inventory management</li>
+                                <li>Quality control</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <h3 class="text-2xl font-bold mb-4">Benefits of IoT in Agriculture</h3>
+                    <ul class="list-disc list-inside text-gray-600 space-y-2 mb-6">
+                        <li>Increased crop yields through optimized resource management</li>
+                        <li>Reduced water consumption with smart irrigation systems</li>
+                        <li>Lower labor costs through automation</li>
+                        <li>Improved decision-making with real-time data</li>
+                        <li>Enhanced sustainability through precise application of inputs</li>
+                        <li>Better risk management with early warning systems</li>
+                        <li>Increased profitability through efficiency gains</li>
+                    </ul>
+
+                    <h3 class="text-2xl font-bold mb-4">Challenges and Considerations</h3>
+                    <p class="text-gray-600 mb-4">While IoT offers numerous benefits for agriculture, there are challenges to implementation:</p>
+                    <ul class="list-disc list-inside text-gray-600 space-y-2">
+                        <li>Initial investment costs for IoT infrastructure</li>
+                        <li>Connectivity issues in remote rural areas</li>
+                        <li>Data security and privacy concerns</li>
+                        <li>Technical expertise required for setup and maintenance</li>
+                        <li>Integration with existing farming practices</li>
+                        <li>Reliability of devices in harsh environmental conditions</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Related Technologies -->
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold mb-6 text-center">Related Technologies</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <a href="precision-agriculture.html" class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
+                        <img src="image/precision.jpg" alt="Precision Agriculture" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Precision Agriculture</h3>
+                            <p class="text-gray-600">Using technology to optimize farming practices</p>
+                        </div>
+                    </a>
+                    <a href="hydroponics.html" class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
+                        <img src="image/Hydroponics.webp" alt="Hydroponics" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Hydroponics</h3>
+                            <p class="text-gray-600">Growing plants without soil using mineral nutrient solutions</p>
+                        </div>
+                    </a>
+                    <a href="ai-agriculture.html" class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
+                        <img src="image/AI.jpg" alt="AI and Machine Learning" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">AI and Machine Learning</h3>
+                            <p class="text-gray-600">Using artificial intelligence to analyze data and make farming decisions</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="bg-green-700 text-white py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-6">Ready to Implement IoT in Your Farm?</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">Our experts can help you set up IoT solutions tailored to your specific farming needs and challenges.</p>
+            <a href="index.html#contact" class="bg-white text-green-700 px-8 py-3 rounded-full font-bold hover:bg-green-100 transition duration-300 inline-block">
+                Contact Us Today
+                <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2024 FarmEmpower. <span id="footer-rights">All rights reserved.</span></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 

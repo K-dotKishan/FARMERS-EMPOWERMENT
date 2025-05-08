@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Climate Forecast - FarmEmpower</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Same styles as above */
+        body { font-family: 'Poppins', sans-serif; }
+        /* ... other styles ... */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="weather-header">
+            <h1 data-translate="weather.title">Climate Forecast</h1>
+            <p data-translate="weather.subtitle">Get accurate weather information for better farming decisions</p>
+        </div>
+
+        <div class="search-section">
+            <input type="text" id="location-input" class="search-input" data-translate-placeholder="weather.search_placeholder" placeholder="Enter your location">
+            <button id="search-button" class="search-button" data-translate="weather.search_button">Search</button>
+            <select id="language-select">
+                <option value="en">English</option>
+                <option value="hi">हिंदी</option>
+            </select>
+        </div>
+
+        <div id="loading" class="loading">
+            <i class="fas fa-spinner"></i>
+        </div>
+
+        <div id="error-message" class="error-message"></div>
+
+        <div class="weather-grid">
+            <div class="weather-card">
+                <i class="fas fa-temperature-high weather-icon"></i>
+                <h3 data-translate="weather.temperature">Temperature</h3>
+                <p id="temperature">--°C</p>
+            </div>
+            <div class="weather-card">
+                <i class="fas fa-tint weather-icon"></i>
+                <h3 data-translate="weather.humidity">Humidity</h3>
+                <p id="humidity">--%</p>
+            </div>
+            <div class="weather-card">
+                <i class="fas fa-wind weather-icon"></i>
+                <h3 data-translate="weather.wind">Wind Speed</h3>
+                <p id="wind-speed">-- km/h</p>
+            </div>
+        </div>
+
+        <div class="forecast-section">
+            <h2 data-translate="weather.forecast">5-Day Forecast</h2>
+            <div id="forecast-days" class="forecast-days"></div>
+        </div>
+
+        <div class="farming-tips">
+            <h2 data-translate="weather.farming_tips">Farming Tips Based on Weather</h2>
+            <ul id="weather-tips" class="tips-list"></ul>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        const translations = {
+            en: {
+                "weather.title": "Climate Forecast",
+                "weather.subtitle": "Get accurate weather information for better farming decisions",
+                "weather.search_placeholder": "Enter your location",
+                "weather.search_button": "Search",
+                "weather.temperature": "Temperature",
+                "weather.humidity": "Humidity",
+                "weather.wind": "Wind Speed",
+                "weather.forecast": "5-Day Forecast",
+                "weather.farming_tips": "Farming Tips Based on Weather"
+            },
+            hi: {
+                "weather.title": "जलवायु पूर्वानी",
+                "weather.subtitle": "औधानिक कृषि निर्णयों के लिए सटीक जानकारी जानीएं",
+                "weather.search_placeholder": "अपनी जगह दाखिएं",
+                "weather.search_button": "खोजें",
+                "weather.temperature": "औसत्रता",
+                "weather.humidity": "आरद्रता",
+                "weather.wind": "हवा की गति",
+                "weather.forecast": "5 दिनों का पूर्वान जलवायु",
+                "weather.farming_tips": "जलवायु की आधार पर खेती की टिप्स"
+            }
+        };
+
+        function applyTranslations() {
+            const lang = localStorage.getItem('lang') || 'en';
+            const elements = document.querySelectorAll('[data-translate]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-translate');
+                if (translations[lang] && translations[lang][key]) {
+                    el.innerText = translations[lang][key];
+                }
+            });
+            document.querySelectorAll('[data-translate-placeholder]').forEach(el => {
+                const key = el.getAttribute('data-translate-placeholder');
+                if (translations[lang] && translations[lang][key]) {
+                    el.placeholder = translations[lang][key];
+                }
+            });
+        }
+
+        document.getElementById('language-select').addEventListener('change', (e) => {
+            localStorage.setItem('lang', e.target.value);
+            applyTranslations();
+        });
+
+        window.addEventListener('DOMContentLoaded', applyTranslations);
+    </script>
+
+    <!-- Weather script here (use your actual API key) -->
+    <script src="../js/weather.js"></script>
+</body>
+</html>

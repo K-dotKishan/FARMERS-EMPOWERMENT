@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Farming Techniques - FarmEmpower</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-green-600 text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <a href="../index.html" class="flex items-center space-x-3">
+                    <div class="bg-white w-12 h-12 rounded-full flex items-center justify-center relative">
+                        <div class="absolute inset-0 bg-gradient-to-br from-green-400 to-green-600 rounded-full opacity-20"></div>
+                        <i class="fas fa-leaf text-2xl text-green-600 transform -rotate-12"></i>
+                        <i class="fas fa-seedling text-xl text-green-500 absolute -bottom-1 -right-1"></i>
+                    </div>
+                    <div class="flex flex-col">
+                        <div class="text-2xl font-bold tracking-wide">FarmEmpower</div>
+                        <div class="text-xs text-green-200">Growing Together</div>
+                    </div>
+                </a>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="../index.html" class="hover:text-green-200 transition duration-300 flex items-center">
+                    <i class="fas fa-home mr-2"></i>
+                    <span id="nav-home">Home</span>
+                </a>
+                <a href="../index.html#services" class="hover:text-green-200 transition duration-300 flex items-center">
+                    <i class="fas fa-cogs mr-2"></i>
+                    <span id="nav-services">Services</span>
+                </a>
+                <a href="../index.html#about" class="hover:text-green-200 transition duration-300 flex items-center">
+                    <i class="fas fa-info-circle mr-2"></i>
+                    <span id="nav-about">About</span>
+                </a>
+                <a href="../index.html#contact" class="hover:text-green-200 transition duration-300 flex items-center">
+                    <i class="fas fa-envelope mr-2"></i>
+                    <span id="nav-contact">Contact</span>
+                </a>
+                <div class="relative">
+                    <button id="lang-selector" class="hover:text-green-200 transition duration-300 flex items-center">
+                        <i class="fas fa-globe mr-2"></i>
+                        <span id="current-lang">English</span>
+                    </button>
+                    <div id="lang-dropdown" class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10 hidden">
+                        <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-green-100" data-lang="en">English</a>
+                        <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-green-100" data-lang="hi">हिंदी</a>
+                        <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-green-100" data-lang="pa">ਪੰਜਾਬੀ</a>
+                        <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-green-100" data-lang="ta">தமிழ்</a>
+                        <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-green-100" data-lang="te">తెలుగు</a>
+                    </div>
+                </div>
+            </div>
+            <button class="md:hidden" id="menu-btn">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="bg-green-600 text-white py-4 hidden md:hidden">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col space-y-4">
+                <a href="../index.html" class="hover:text-green-200 transition duration-300 flex items-center">
+                    <i class="fas fa-home mr-2"></i>
+                    <span id="mobile-nav-home">Home</span>
+                </a>
+                <a href="../index.html#services" class="hover:text-green-200 transition duration-300 flex items-center">
+                    <i class="fas fa-cogs mr-2"></i>
+                    <span id="mobile-nav-services">Services</span>
+                </a>
+                <a href="../index.html#about" class="hover:text-green-200 transition duration-300 flex items-center">
+                    <i class="fas fa-info-circle mr-2"></i>
+                    <span id="mobile-nav-about">About</span>
+                </a>
+                <a href="../index.html#contact" class="hover:text-green-200 transition duration-300 flex items-center">
+                    <i class="fas fa-envelope mr-2"></i>
+                    <span id="mobile-nav-contact">Contact</span>
+                </a>
+                <div class="pt-2 border-t border-green-500">
+                    <div class="flex items-center mb-2">
+                        <i class="fas fa-globe mr-2"></i>
+                        <span>Language</span>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2">
+                        <button class="lang-option bg-green-700 py-2 px-3 rounded hover:bg-green-800 transition duration-300" data-lang="en">English</button>
+                        <button class="lang-option bg-green-700 py-2 px-3 rounded hover:bg-green-800 transition duration-300" data-lang="hi">हिंदी</button>
+                        <button class="lang-option bg-green-700 py-2 px-3 rounded hover:bg-green-800 transition duration-300" data-lang="pa">ਪੰਜਾਬੀ</button>
+                        <button class="lang-option bg-green-700 py-2 px-3 rounded hover:bg-green-800 transition duration-300" data-lang="ta">தமிழ்</button>
+                        <button class="lang-option bg-green-700 py-2 px-3 rounded hover:bg-green-800 transition duration-300" data-lang="te">తెలుగు</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="relative bg-green-700 text-white py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6" id="hero-title">Modern Farming Techniques</h1>
+            <p class="text-xl mb-8" id="hero-subtitle">Discover the latest agricultural innovations and sustainable farming practices</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <!-- Introduction -->
+            <div class="max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl font-bold mb-6" id="intro-title">Revolutionizing Agriculture</h2>
+                <p class="text-gray-600 mb-4" id="intro-text">Modern farming techniques combine traditional wisdom with cutting-edge technology to maximize yield while maintaining environmental sustainability. Our comprehensive guide covers various aspects of contemporary farming practices.</p>
+            </div>
+        
+            <!-- Techniques Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                <!-- Precision Agriculture -->
+                <a href="precision-agriculture.html" class="block bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
+                    <img src="../image/precision.jpg" 
+                         alt="Precision Agriculture" 
+                         class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3" id="precision-title">Precision Agriculture</h3>
+                        <p class="text-gray-600 mb-4" id="precision-desc">Using GPS technology and sensors to optimize field-level management with regard to crop farming.</p>
+                        <ul class="text-gray-600 space-y-2">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span id="precision-feature1">Soil mapping and analysis</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span id="precision-feature2">Variable rate technology</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span id="precision-feature3">Drone-based monitoring</span>
+                            </li>
+                        </ul>
+                    </div>
+                </a>
+
+                <!-- Hydroponics -->
+                <a href="hydroponics.html" class="block bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
+                    <img src="../image/Hydroponics.webp" 
+                         alt="Hydroponics" 
+                         class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3" id="hydroponics-title">Hydroponics</h3>
+                        <p class="text-gray-600 mb-4" id="hydroponics-desc">Growing plants without soil, using mineral nutrient solutions in water.</p>
+                        <ul class="text-gray-600 space-y-2">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span id="hydroponics-feature1">Water conservation</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span id="hydroponics-feature2">Controlled environment</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span id="hydroponics-feature3">Higher yields</span>
+                            </li>
+                        </ul>
+                    </div>
+                </a>
+
+                <!-- Smart Irrigation -->
+                <a href="smart-irrigation.html" class="block bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
+                    <img src="../image/smartirrigation.jpg" 
+                         alt="Smart Irrigation" 
+                         class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3" id="technique1-title">Smart Irrigation</h3>
+                        <p class="text-gray-600 mb-4" id="technique1-desc">Automated irrigation systems with sensors and weather-based scheduling</p>
+                        <ul class="text-gray-600 space-y-2">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span id="technique1-feature1">Water conservation</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span id="technique1-feature2">Weather-based scheduling</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span id="technique1-feature3">Remote monitoring</span>
+                            </li>
+                        </ul>
+                    </div>
+                </a>
+                
+                <!-- AI and Machine Learning -->
+                <a href="ai-agriculture.html" class="block bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
+                    <img src="../image/AI.jpg" 
+                         alt="AI and Machine Learning" 
+                         class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3" id="ai-title">AI and Machine Learning</h3>
+                        <p class="text-gray-600 mb-4" id="ai-desc">Using artificial intelligence to analyze data and make farming decisions.</p>
+                        <ul class="text-gray-600 space-y-2">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span id="ai-feature1">Crop disease prediction</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span id="ai-feature2">Yield forecasting</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span id="ai-feature3">Automated decision support</span>
+                            </li>
+                        </ul>
+                    </div>
+                </a>
+                
+                <!-- IoT in Agriculture -->
+                <a href="iot-agriculture.html" class="block bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
+                    <img src="../image/iot.jpg" 
+                         alt="IoT in Agriculture" 
+                         class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3" id="iot-title">IoT in Agriculture</h3>
+                        <p class="text-gray-600 mb-4" id="iot-desc">Connected devices and sensors that provide real-time monitoring and control.</p>
+                        <ul class="text-gray-600 space-y-2">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span id="iot-feature1">Smart sensors</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span id="iot-feature2">Automated systems</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span id="iot-feature3">Remote monitoring</span>
+                            </li>
+                        </ul>
+                    </div>
+                </a>
+                
+                <!-- Bio-Technology -->
+                <a href="biotechnology.html" class="block bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
+                    <img src="../image/biotech.webp" 
+                         alt="Bio-Technology" 
+                         class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3" id="bio-title">Bio-Technology</h3>
+                        <p class="text-gray-600 mb-4" id="bio-desc">Using biological processes to develop improved crop varieties and pest control.</p>
+                        <ul class="text-gray-600 space-y-2">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span id="bio-feature1">Disease-resistant crops</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span id="bio-feature2">Bio-pesticides</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span id="bio-feature3">Genetic improvements</span>
+                            </li>
+                        </ul>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Benefits Section -->
+            <div class="bg-green-50 rounded-xl p-8 mb-16">
+                <h2 class="text-3xl font-bold mb-6 text-center" id="benefits-title">Benefits of Modern Farming</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="text-center">
+                        <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-chart-line text-2xl text-green-600"></i>
+                        </div>
+                        <h3 class="font-bold mb-2" id="benefit1-title">Increased Yield</h3>
+                        <p class="text-gray-600" id="benefit1-desc">Higher crop production with optimized resources</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-leaf text-2xl text-green-600"></i>
+                        </div>
+                        <h3 class="font-bold mb-2" id="benefit2-title">Sustainability</h3>
+                        <p class="text-gray-600" id="benefit2-desc">Environment-friendly farming practices</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-water text-2xl text-green-600"></i>
+                        </div>
+                        <h3 class="font-bold mb-2" id="benefit3-title">Water Conservation</h3>
+                        <p class="text-gray-600" id="benefit3-desc">Efficient water management systems</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-dollar-sign text-2xl text-green-600"></i>
+                        </div>
+                        <h3 class="font-bold mb-2" id="benefit4-title">Cost Effective</h3>
+                        <p class="text-gray-600" id="benefit4-desc">Reduced operational costs and higher profits</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Call to Action -->
+            <div class="text-center">
+                <h2 class="text-3xl font-bold mb-6" id="cta-title">Ready to Modernize Your Farming?</h2>
+                <p class="text-gray-600 mb-8 max-w-2xl mx-auto" id="cta-desc">Join our training programs and learn how to implement these modern farming techniques on your farm.</p>
+                <a href="index.html#contact" class="bg-green-600 text-white px-8 py-3 rounded-full font-bold hover:bg-green-700 transition duration-300 inline-block">
+                    <span id="cta-button">Get Started Today</span>
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2024 FarmEmpower. <span id="footer-rights">All rights reserved.</span></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 

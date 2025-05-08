@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Support - FarmEmpower</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-green-600 text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <a href="../index.html" class="flex items-center space-x-3">
+                    <div class="bg-white w-12 h-12 rounded-full flex items-center justify-center relative">
+                        <div class="absolute inset-0 bg-gradient-to-br from-green-400 to-green-600 rounded-full opacity-20"></div>
+                        <i class="fas fa-leaf text-2xl text-green-600 transform -rotate-12"></i>
+                        <i class="fas fa-seedling text-xl text-green-500 absolute -bottom-1 -right-1"></i>
+                    </div>
+                    <div class="flex flex-col">
+                        <div class="text-2xl font-bold tracking-wide">FarmEmpower</div>
+                        <div class="text-xs text-green-200">Growing Together</div>
+                    </div>
+                </a>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="../index.html" class="hover:text-green-200 transition duration-300 flex items-center">
+                    <i class="fas fa-home mr-2"></i>
+                    <span id="nav-home">Home</span>
+                </a>
+                <a href="../index.html#services" class="hover:text-green-200 transition duration-300 flex items-center">
+                    <i class="fas fa-cogs mr-2"></i>
+                    <span id="nav-services">Services</span>
+                </a>
+                <a href="../index.html#about" class="hover:text-green-200 transition duration-300 flex items-center">
+                    <i class="fas fa-info-circle mr-2"></i>
+                    <span id="nav-about">About</span>
+                </a>
+                <a href="../index.html#contact" class="hover:text-green-200 transition duration-300 flex items-center">
+                    <i class="fas fa-envelope mr-2"></i>
+                    <span id="nav-contact">Contact</span>
+                </a>
+                <div class="relative">
+                    <button id="lang-selector" class="hover:text-green-200 transition duration-300 flex items-center">
+                        <i class="fas fa-globe mr-2"></i>
+                        <span id="current-lang">English</span>
+                    </button>
+                    <div id="lang-dropdown" class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10 hidden">
+                        <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-green-100" data-lang="en">English</a>
+                        <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-green-100" data-lang="hi">हिंदी</a>
+                        <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-green-100" data-lang="pa">ਪੰਜਾਬੀ</a>
+                        <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-green-100" data-lang="ta">தமிழ்</a>
+                        <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-green-100" data-lang="te">తెలుగు</a>
+                    </div>
+                </div>
+            </div>
+            <button class="md:hidden" id="menu-btn">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="bg-green-600 text-white py-4 hidden md:hidden">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col space-y-4">
+                <a href="../index.html" class="hover:text-green-200 transition duration-300 flex items-center">
+                    <i class="fas fa-home mr-2"></i>
+                    <span id="mobile-nav-home">Home</span>
+                </a>
+                <a href="../index.html#services" class="hover:text-green-200 transition duration-300 flex items-center">
+                    <i class="fas fa-cogs mr-2"></i>
+                    <span id="mobile-nav-services">Services</span>
+                </a>
+                <a href="../index.html#about" class="hover:text-green-200 transition duration-300 flex items-center">
+                    <i class="fas fa-info-circle mr-2"></i>
+                    <span id="mobile-nav-about">About</span>
+                </a>
+                <a href="../index.html#contact" class="hover:text-green-200 transition duration-300 flex items-center">
+                    <i class="fas fa-envelope mr-2"></i>
+                    <span id="mobile-nav-contact">Contact</span>
+                </a>
+                <div class="pt-2 border-t border-green-500">
+                    <div class="flex items-center mb-2">
+                        <i class="fas fa-globe mr-2"></i>
+                        <span>Language</span>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2">
+                        <button class="lang-option bg-green-700 py-2 px-3 rounded hover:bg-green-800 transition duration-300" data-lang="en">English</button>
+                        <button class="lang-option bg-green-700 py-2 px-3 rounded hover:bg-green-800 transition duration-300" data-lang="hi">हिंदी</button>
+                        <button class="lang-option bg-green-700 py-2 px-3 rounded hover:bg-green-800 transition duration-300" data-lang="pa">ਪੰਜਾਬੀ</button>
+                        <button class="lang-option bg-green-700 py-2 px-3 rounded hover:bg-green-800 transition duration-300" data-lang="ta">தமிழ்</button>
+                        <button class="lang-option bg-green-700 py-2 px-3 rounded hover:bg-green-800 transition duration-300" data-lang="te">తెలుగు</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="relative bg-green-700 text-white py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6" id="hero-title">Financial Support for Farmers</h1>
+            <p class="text-xl mb-8" id="hero-subtitle">Access to loans, grants, and financial resources to grow your farming business</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <!-- Introduction -->
+            <div class="max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl font-bold mb-6" id="intro-title">Empowering Farmers Through Financial Support</h2>
+                <p class="text-gray-600 mb-4" id="intro-text">We understand the financial challenges faced by farmers and offer comprehensive support through various financial programs and services. Our goal is to make farming more profitable and sustainable.</p>
+            </div>
+
+            <!-- Financial Services Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                <!-- Agricultural Loans -->
+                <a href="agricultural-loans.html" class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
+                    <img src="../image/agrloan/agriculturloan.png" alt="Agricultural Loans" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3" id="loan-title">Agricultural Loans</h3>
+                        <p class="text-gray-600 mb-4" id="loan-desc">Low-interest loans for farm equipment, seeds, and infrastructure development.</p>
+                        <ul class="text-gray-600 space-y-2">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span id="loan-feature1">Flexible repayment terms</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span id="loan-feature2">Competitive interest rates</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span id="loan-feature3">Quick approval process</span>
+                            </li>
+                        </ul>
+                        <div class="mt-4">
+                            <span class="text-green-600 hover:text-green-800 font-medium flex items-center">
+                                View loan options <i class="fas fa-arrow-right ml-2"></i>
+                            </span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Government Schemes -->
+                <a href="government-schemes.html" class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
+                    <img src="../image/agrloan/governmentscheme.jpg" alt="Government Schemes" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3" id="scheme-title">Government Schemes</h3>
+                        <p class="text-gray-600 mb-4" id="scheme-desc">Access to various government subsidies and support programs.</p>
+                        <ul class="text-gray-600 space-y-2">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span id="scheme-feature1">PM Kisan Samman Nidhi</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span id="scheme-feature2">Agricultural Infrastructure Fund</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span id="scheme-feature3">Crop Insurance Schemes</span>
+                            </li>
+                        </ul>
+                        <div class="mt-4">
+                            <span class="text-green-600 hover:text-green-800 font-medium flex items-center">
+                                View schemes <i class="fas fa-arrow-right ml-2"></i>
+                            </span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Financial Advisory -->
+                <a href="financial-advisor.html" class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
+                    <img src="../image/agrloan/financaladvisor.jpg" alt="Financial Advisory" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3" id="advisory-title">Financial Advisory</h3>
+                        <p class="text-gray-600 mb-4" id="advisory-desc">Expert guidance on financial planning and management.</p>
+                        <ul class="text-gray-600 space-y-2">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span id="advisory-feature1">Business planning</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span id="advisory-feature2">Investment strategies</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span id="advisory-feature3">Risk management</span>
+                            </li>
+                        </ul>
+                        <div class="mt-4">
+                            <span class="text-green-600 hover:text-green-800 font-medium flex items-center">
+                                Get advice <i class="fas fa-arrow-right ml-2"></i>
+                            </span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Application Process -->
+            <div class="bg-green-50 rounded-xl p-8 mb-16">
+                <h2 class="text-3xl font-bold mb-6 text-center" id="process-title">How to Apply</h2>
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    <div class="text-center">
+                        <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-file-alt text-2xl text-green-600"></i>
+                        </div>
+                        <h3 class="font-bold mb-2" id="step1-title">Documentation</h3>
+                        <p class="text-gray-600" id="step1-desc">Gather required documents</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-clipboard-check text-2xl text-green-600"></i>
+                        </div>
+                        <h3 class="font-bold mb-2" id="step2-title">Application</h3>
+                        <p class="text-gray-600" id="step2-desc">Fill application form</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-search text-2xl text-green-600"></i>
+                        </div>
+                        <h3 class="font-bold mb-2" id="step3-title">Verification</h3>
+                        <p class="text-gray-600" id="step3-desc">Document verification</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-check-circle text-2xl text-green-600"></i>
+                        </div>
+                        <h3 class="font-bold mb-2" id="step4-title">Approval</h3>
+                        <p class="text-gray-600" id="step4-desc">Receive approval</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Call to Action -->
+            <div class="text-center">
+                <h2 class="text-3xl font-bold mb-6" id="cta-title">Ready to Get Financial Support?</h2>
+                <p class="text-gray-600 mb-8 max-w-2xl mx-auto" id="cta-desc">Contact us today to learn more about our financial support programs and how we can help you grow your farming business.</p>
+                <a href="../index.html#contact" class="bg-green-600 text-white px-8 py-3 rounded-full font-bold hover:bg-green-700 transition duration-300 inline-block">
+                    <span id="cta-button">Apply Now</span>
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2024 FarmEmpower. <span id="footer-rights">All rights reserved.</span></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Started - FarmEmpower</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: #10B981;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 1rem;
+        }
+        .progress-bar {
+            height: 4px;
+            background: #E5E7EB;
+            position: relative;
+        }
+        .progress-bar::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            background: #10B981;
+            width: 0;
+            transition: width 0.5s ease;
+        }
+        .progress-bar.active::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full z-50">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="flex items-center space-x-2">
+                    <i class="fas fa-leaf text-2xl text-green-600"></i>
+                    <span class="text-xl font-bold text-green-600">FarmEmpower</span>
+                </a>
+                <a href="index.html" class="text-gray-600 hover:text-green-600">
+                    <i class="fas fa-times text-2xl"></i>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="pt-16">
+        <!-- Progress Bar -->
+        <div class="progress-bar mb-8">
+            <div class="container mx-auto px-4">
+                <div class="progress-bar"></div>
+            </div>
+        </div>
+
+        <!-- Hero Section -->
+        <section class="gradient-bg text-white py-16">
+            <div class="container mx-auto px-4 text-center">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6" data-aos="fade-up">Start Your Farming Journey</h1>
+                <p class="text-xl mb-8 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                    Join thousands of farmers who have transformed their agricultural practices with our support.
+                </p>
+            </div>
+        </section>
+
+        <!-- Steps Section -->
+        <section class="py-16">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Step 1 -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg card-hover" data-aos="fade-up">
+                        <div class="flex items-center mb-6">
+                            <div class="step-number">1</div>
+                            <h3 class="text-xl font-bold">Create Your Account</h3>
+                        </div>
+                        <p class="text-gray-600 mb-6">Sign up to access our comprehensive farming resources and support network.</p>
+                        <a href="pages/signup.php" class="inline-flex items-center text-green-600 font-medium">
+                            Sign Up Now
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg card-hover" data-aos="fade-up" data-aos-delay="100">
+                        <div class="flex items-center mb-6">
+                            <div class="step-number">2</div>
+                            <h3 class="text-xl font-bold">Choose Your Path</h3>
+                        </div>
+                        <p class="text-gray-600 mb-6">Select from our range of services tailored to your farming needs.</p>
+                        <div class="space-y-3">
+                            <a href="training-programs.php" class="block text-green-600 hover:text-green-700">
+                                <i class="fas fa-graduation-cap mr-2"></i>
+                                Training Programs
+                            </a>
+                            <a href="online-marketplace.php" class="block text-green-600 hover:text-green-700">
+                                <i class="fas fa-store mr-2"></i>
+                                Market Access
+                            </a>
+                            <a href="pages/financial-support.html" class="block text-green-600 hover:text-green-700">
+                                <i class="fas fa-hand-holding-usd mr-2"></i>
+                                Financial Support
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg card-hover" data-aos="fade-up" data-aos-delay="200">
+                        <div class="flex items-center mb-6">
+                            <div class="step-number">3</div>
+                            <h3 class="text-xl font-bold">Get Support</h3>
+                        </div>
+                        <p class="text-gray-600 mb-6">Connect with our experts and community for guidance and support.</p>
+                        <div class="space-y-3">
+                            <a href="#contact" class="block text-green-600 hover:text-green-700">
+                                <i class="fas fa-headset mr-2"></i>
+                                Contact Support
+                            </a>
+                            <a href="pages/blog/blogpage.html" class="block text-green-600 hover:text-green-700">
+                                <i class="fas fa-book mr-2"></i>
+                                Read Resources
+                            </a>
+                            <a href="#community" class="block text-green-600 hover:text-green-700">
+                                <i class="fas fa-users mr-2"></i>
+                                Join Community
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="py-16 bg-gray-100">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">Why Choose FarmEmpower?</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Feature 1 -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg text-center card-hover" data-aos="zoom-in">
+                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-chart-line text-2xl text-green-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Increased Yield</h3>
+                        <p class="text-gray-600">Learn modern techniques to maximize your crop production</p>
+                    </div>
+
+                    <!-- Feature 2 -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg text-center card-hover" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-handshake text-2xl text-green-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Market Access</h3>
+                        <p class="text-gray-600">Connect directly with buyers and get better prices</p>
+                    </div>
+
+                    <!-- Feature 3 -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg text-center card-hover" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-graduation-cap text-2xl text-green-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Expert Training</h3>
+                        <p class="text-gray-600">Learn from industry experts and successful farmers</p>
+                    </div>
+
+                    <!-- Feature 4 -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg text-center card-hover" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-users text-2xl text-green-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Community Support</h3>
+                        <p class="text-gray-600">Join a network of farmers sharing knowledge and experience</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-16">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="text-3xl font-bold mb-6" data-aos="fade-up">Ready to Transform Your Farming?</h2>
+                <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                    Join thousands of successful farmers who have improved their yields and income with FarmEmpower.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4" data-aos="fade-up" data-aos-delay="200">
+                    <a href="signup.php" class="bg-green-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-green-700 transition duration-300">
+                        Get Started Now
+                    </a>
+                    <a href="index.html#contact" class="bg-white text-green-600 px-8 py-3 rounded-lg font-bold border-2 border-green-600 hover:bg-green-50 transition duration-300">
+                        Contact Us
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2024 FarmEmpower. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        // Progress Bar Animation
+        const progressBar = document.querySelector('.progress-bar');
+        window.addEventListener('scroll', () => {
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight;
+            const scrollTop = window.scrollY;
+            const progress = (scrollTop / (documentHeight - windowHeight)) * 100;
+            progressBar.style.width = `${progress}%`;
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmer Resources - FarmEmpower</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .resource-card {
+            transition: all 0.3s ease;
+        }
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 200px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -100px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-green-600 text-white p-4 fixed w-full z-40">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../../index.html" class="flex items-center space-x-2">
+                <i class="fas fa-leaf text-2xl"></i>
+                <span class="text-xl font-bold">FarmEmpower</span>
+            </a>
+            <div class="hidden md:flex space-x-6">
+                <a href="../../index.html" class="hover:text-green-200">Home</a>
+                <a href="../blog/blogpage.html" class="hover:text-green-200">Blog</a>
+                <a href="../../get-started.html" class="hover:text-green-200">Get Started</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="pt-20">
+        <!-- Hero Section -->
+        <section class="bg-gradient-to-r from-green-600 to-green-800 text-white py-16">
+            <div class="container mx-auto px-4 text-center">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6">Farmer Resources</h1>
+                <p class="text-xl mb-8 max-w-2xl mx-auto">Access tools, guides, and information to help you succeed in your farming journey</p>
+            </div>
+        </section>
+
+        <!-- Quick Tools Section -->
+        <section class="py-12">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center mb-8">Quick Tools</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white p-6 rounded-xl shadow-lg resource-card">
+                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-calculator text-2xl text-green-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-center">Crop Calculator</h3>
+                        <p class="text-gray-600 mb-4">Calculate optimal planting dates, fertilizer requirements, and yield estimates</p>
+                        <a href="#" class="block text-center text-green-600 hover:text-green-700 font-medium">
+                            Use Calculator →
+                        </a>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl shadow-lg resource-card">
+                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-cloud-sun text-2xl text-green-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-center">Weather Forecast</h3>
+                        <p class="text-gray-600 mb-4">Get accurate weather predictions and farming recommendations</p>
+                        <a href="#" class="block text-center text-green-600 hover:text-green-700 font-medium">
+                            Check Weather →
+                        </a>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl shadow-lg resource-card">
+                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-chart-line text-2xl text-green-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-center">Market Prices</h3>
+                        <p class="text-gray-600 mb-4">Track real-time market prices for your crops and commodities</p>
+                        <a href="#" class="block text-center text-green-600 hover:text-green-700 font-medium">
+                            View Prices →
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Learning Resources -->
+        <section class="py-12 bg-gray-100">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center mb-8">Learning Resources</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="bg-white p-6 rounded-xl shadow-lg resource-card">
+                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-book text-2xl text-green-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Farming Guides</h3>
+                        <p class="text-gray-600 mb-4">Comprehensive guides for different crops and farming techniques</p>
+                        <a href="#" class="text-green-600 hover:text-green-700 font-medium">
+                            Browse Guides →
+                        </a>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl shadow-lg resource-card">
+                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-video text-2xl text-green-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Video Tutorials</h3>
+                        <p class="text-gray-600 mb-4">Step-by-step video tutorials for various farming practices</p>
+                        <a href="#" class="text-green-600 hover:text-green-700 font-medium">
+                            Watch Videos →
+                        </a>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl shadow-lg resource-card">
+                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-users text-2xl text-green-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Expert Q&A</h3>
+                        <p class="text-gray-600 mb-4">Get answers to your farming questions from experts</p>
+                        <a href="#" class="text-green-600 hover:text-green-700 font-medium">
+                            Ask Questions →
+                        </a>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl shadow-lg resource-card">
+                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-graduation-cap text-2xl text-green-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Online Courses</h3>
+                        <p class="text-gray-600 mb-4">Structured courses for skill development</p>
+                        <a href="#" class="text-green-600 hover:text-green-700 font-medium">
+                            Explore Courses →
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Government Schemes -->
+        <section class="py-12">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center mb-8">Government Schemes</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-white p-6 rounded-xl shadow-lg resource-card">
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-hand-holding-usd text-xl text-green-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">Financial Support</h3>
+                                <p class="text-gray-600 mb-4">Information about loans, subsidies, and financial assistance programs</p>
+                                <a href="#" class="text-green-600 hover:text-green-700 font-medium">
+                                    Learn More →
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl shadow-lg resource-card">
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-tractor text-xl text-green-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">Equipment Support</h3>
+                                <p class="text-gray-600 mb-4">Schemes for farm equipment and machinery assistance</p>
+                                <a href="#" class="text-green-600 hover:text-green-700 font-medium">
+                                    Learn More →
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Community Support -->
+        <section class="py-12 bg-gray-100">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center mb-8">Community Support</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white p-6 rounded-xl shadow-lg resource-card">
+                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-comments text-2xl text-green-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-center">Discussion Forums</h3>
+                        <p class="text-gray-600 mb-4 text-center">Connect with other farmers and share experiences</p>
+                        <a href="#" class="block text-center text-green-600 hover:text-green-700 font-medium">
+                            Join Discussions →
+                        </a>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl shadow-lg resource-card">
+                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-calendar-alt text-2xl text-green-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-center">Events & Workshops</h3>
+                        <p class="text-gray-600 mb-4 text-center">Find local farming events and training workshops</p>
+                        <a href="#" class="block text-center text-green-600 hover:text-green-700 font-medium">
+                            View Events →
+                        </a>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl shadow-lg resource-card">
+                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-hands-helping text-2xl text-green-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-center">Expert Support</h3>
+                        <p class="text-gray-600 mb-4 text-center">Get one-on-one support from agricultural experts</p>
+                        <a href="#" class="block text-center text-green-600 hover:text-green-700 font-medium">
+                            Get Support →
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2024 FarmEmpower. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html> 

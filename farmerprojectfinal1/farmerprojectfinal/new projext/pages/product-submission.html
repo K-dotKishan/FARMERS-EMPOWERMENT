@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Submission - FarmEmpower</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .success-animation {
+            animation: successScale 1s ease-in-out;
+        }
+        
+        @keyframes successScale {
+            0% { transform: scale(0); opacity: 0; }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        
+        .checkmark {
+            animation: checkmarkDraw 1s ease-in-out forwards;
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+        }
+        
+        @keyframes checkmarkDraw {
+            to { stroke-dashoffset: 0; }
+        }
+        
+        .progress-bar {
+            height: 4px;
+            background: #e2e8f0;
+            border-radius: 2px;
+            overflow: hidden;
+        }
+        
+        .progress-bar-fill {
+            height: 100%;
+            background: #4CAF50;
+            transition: width 0.5s ease-in-out;
+        }
+        
+        .step-indicator {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .step-indicator.active {
+            background: #4CAF50;
+            color: white;
+        }
+        
+        .step-indicator.completed {
+            background: #4CAF50;
+            color: white;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Navigation -->
+    <nav class="bg-green-600 text-white p-4 fixed w-full z-40">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../index.html" class="flex items-center space-x-3">
+                <div class="bg-white w-12 h-12 rounded-full flex items-center justify-center">
+                    <i class="fas fa-leaf text-2xl text-green-600"></i>
+                </div>
+                <span class="text-xl font-bold">FarmEmpower</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mx-auto px-4 pt-24 pb-12">
+        <!-- Progress Bar -->
+        <div class="max-w-3xl mx-auto mb-8">
+            <div class="flex justify-between mb-2">
+                <div class="step-indicator completed">
+                    <i class="fas fa-check"></i>
+                </div>
+                <div class="step-indicator completed">
+                    <i class="fas fa-check"></i>
+                </div>
+                <div class="step-indicator active">3</div>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-bar-fill" style="width: 100%"></div>
+            </div>
+        </div>
+
+        <!-- Success Message -->
+        <div class="max-w-2xl mx-auto bg-white rounded-xl shadow-lg p-8" data-aos="zoom-in">
+            <!-- Success Icon -->
+            <div class="w-24 h-24 mx-auto mb-6 success-animation">
+                <svg class="w-full h-full" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="45" fill="#4CAF50" opacity="0.2"/>
+                    <path class="checkmark" fill="none" stroke="#4CAF50" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" d="M30 50 L45 65 L70 35"/>
+                </svg>
+            </div>
+            
+            <!-- Success Content -->
+            <div class="text-center">
+                <h1 class="text-3xl font-bold text-gray-800 mb-4">Product Submitted Successfully!</h1>
+                <p class="text-gray-600 mb-8">Your product has been submitted for review. We'll notify you once it's approved.</p>
+                
+                <!-- Next Steps -->
+                <div class="bg-green-50 rounded-lg p-6 mb-8">
+                    <h2 class="text-xl font-semibold text-green-800 mb-4">What's Next?</h2>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="bg-green-100 p-2 rounded-full mr-4">
+                                <i class="fas fa-clock text-green-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-medium text-gray-800">Review Process</h3>
+                                <p class="text-gray-600 text-sm">Our team will review your submission within 24-48 hours</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-green-100 p-2 rounded-full mr-4">
+                                <i class="fas fa-envelope text-green-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-medium text-gray-800">Email Notification</h3>
+                                <p class="text-gray-600 text-sm">You'll receive an email once your product is approved</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-green-100 p-2 rounded-full mr-4">
+                                <i class="fas fa-store text-green-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-medium text-gray-800">Marketplace Listing</h3>
+                                <p class="text-gray-600 text-sm">Your product will be listed in our marketplace after approval</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Action Buttons -->
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="../index.html" class="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition duration-300 flex items-center justify-center">
+                        <i class="fas fa-home mr-2"></i>
+                        Back to Home
+                    </a>
+                    <a href="dashboard.html" class="bg-gray-100 text-gray-800 px-6 py-3 rounded-lg hover:bg-gray-200 transition duration-300 flex items-center justify-center">
+                        <i class="fas fa-chart-line mr-2"></i>
+                        View Dashboard
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+    </script>
+</body>
+</html> 

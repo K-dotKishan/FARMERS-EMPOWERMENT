@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pruning Shears - FarmEmpower</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .tab-button.active {
+            border-bottom: 3px solid #059669;
+            color: #059669;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-green-600 text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <a href="../index.html" class="flex items-center space-x-3">
+                    <div class="bg-white w-12 h-12 rounded-full flex items-center justify-center relative">
+                        <div class="absolute inset-0 bg-gradient-to-br from-green-400 to-green-600 rounded-full opacity-20"></div>
+                        <i class="fas fa-leaf text-2xl text-green-600 transform -rotate-12"></i>
+                        <i class="fas fa-seedling text-xl text-green-500 absolute -bottom-1 -right-1"></i>
+                    </div>
+                    <div class="flex flex-col">
+                        <div class="text-2xl font-bold tracking-wide">FarmEmpower</div>
+                        <div class="text-xs text-green-200">Growing Together</div>
+                    </div>
+                </a>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="../index.html" class="hover:text-green-200 transition duration-300 flex items-center">
+                    <i class="fas fa-home mr-2"></i>
+                    <span>Home</span>
+                </a>
+                <a href="../index.html#services" class="hover:text-green-200 transition duration-300 flex items-center">
+                    <i class="fas fa-cogs mr-2"></i>
+                    <span>Services</span>
+                </a>
+                <a href="../index.html#about" class="hover:text-green-200 transition duration-300 flex items-center">
+                    <i class="fas fa-info-circle mr-2"></i>
+                    <span>About</span>
+                </a>
+                <a href="../index.html#contact" class="hover:text-green-200 transition duration-300 flex items-center">
+                    <i class="fas fa-envelope mr-2"></i>
+                    <span>Contact</span>
+                </a>
+                <a href="../online-marketplace.php" class="hover:text-green-200 transition duration-300 flex items-center">
+                    <i class="fas fa-store mr-2"></i>
+                    <span>Marketplace</span>
+                </a>
+                <a href="../cart.php" class="hover:text-green-200 transition duration-300 flex items-center">
+                    <i class="fas fa-shopping-cart mr-2"></i>
+                    <span>Cart</span>
+                </a>
+                <div class="relative">
+                    <button id="lang-selector" class="hover:text-green-200 transition duration-300 flex items-center">
+                        <i class="fas fa-globe mr-2"></i>
+                        <span>English</span>
+                    </button>
+                    <div id="lang-dropdown" class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10 hidden">
+                        <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-green-100">English</a>
+                        <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-green-100">हिंदी</a>
+                        <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-green-100">ਪੰਜਾਬੀ</a>
+                    </div>
+                </div>
+            </div>
+            <button class="md:hidden" id="menu-btn">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="bg-green-600 text-white py-4 hidden md:hidden">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col space-y-4">
+                <a href="../index.html" class="hover:text-green-200 transition duration-300 flex items-center">
+                    <i class="fas fa-home mr-2"></i>
+                    <span>Home</span>
+                </a>
+                <a href="../index.html#services" class="hover:text-green-200 transition duration-300 flex items-center">
+                    <i class="fas fa-cogs mr-2"></i>
+                    <span>Services</span>
+                </a>
+                <a href="../index.html#about" class="hover:text-green-200 transition duration-300 flex items-center">
+                    <i class="fas fa-info-circle mr-2"></i>
+                    <span>About</span>
+                </a>
+                <a href="../index.html#contact" class="hover:text-green-200 transition duration-300 flex items-center">
+                    <i class="fas fa-envelope mr-2"></i>
+                    <span>Contact</span>
+                </a>
+                <a href="../online-marketplace.php" class="hover:text-green-200 transition duration-300 flex items-center">
+                    <i class="fas fa-store mr-2"></i>
+                    <span>Marketplace</span>
+                </a>
+                <a href="../cart.php" class="hover:text-green-200 transition duration-300 flex items-center">
+                    <i class="fas fa-shopping-cart mr-2"></i>
+                    <span>Cart</span>
+                </a>
+                <div class="pt-2 border-t border-green-500">
+                    <div class="flex items-center mb-2">
+                        <i class="fas fa-globe mr-2"></i>
+                        <span>Language</span>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2">
+                        <button class="lang-option bg-green-700 py-2 px-3 rounded hover:bg-green-800 transition duration-300">English</button>
+                        <button class="lang-option bg-green-700 py-2 px-3 rounded hover:bg-green-800 transition duration-300">हिंदी</button>
+                        <button class="lang-option bg-green-700 py-2 px-3 rounded hover:bg-green-800 transition duration-300">ਪੰਜਾਬੀ</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Breadcrumb -->
+    <div class="bg-gray-100 py-3">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center text-sm text-gray-600">
+                <a href="../index.html" class="hover:text-green-600">Home</a>
+                <i class="fas fa-chevron-right mx-2 text-xs"></i>
+                <a href="../online-marketplace.php" class="hover:text-green-600">Marketplace</a>
+                <i class="fas fa-chevron-right mx-2 text-xs"></i>
+                <a href="../online-marketplace.php?category=tools" class="hover:text-green-600">Tools & Equipment</a>
+                <i class="fas fa-chevron-right mx-2 text-xs"></i>
+                <span class="text-gray-800">Pruning Shears</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Detail Section -->
+    <section class="py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Product Gallery -->
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <div class="mb-6">
+                        <img src="../image/tractor.jpg" alt="Pruning Shears" class="w-full h-96 object-cover rounded-lg">
+                    </div>
+                    <div class="grid grid-cols-4 gap-4">
+                        <div class="border-2 border-green-500 rounded-lg overflow-hidden">
+                            <img src="../image/tractor.jpg" alt="Pruning Shears View 1" class="w-full h-24 object-cover">
+                        </div>
+                        <div class="border rounded-lg overflow-hidden">
+                            <img src="../image/tractor.jpg" alt="Pruning Shears View 2" class="w-full h-24 object-cover">
+                        </div>
+                        <div class="border rounded-lg overflow-hidden">
+                            <img src="../image/tractor.jpg" alt="Pruning Shears View 3" class="w-full h-24 object-cover">
+                        </div>
+                        <div class="border rounded-lg overflow-hidden">
+                            <img src="../image/tractor.jpg" alt="Pruning Shears View 4" class="w-full h-24 object-cover">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Info -->
+                <div>
+                    <h1 class="text-3xl font-bold mb-2">Pruning Shears</h1>
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span class="ml-2 text-gray-600">(4.8/5 from 112 reviews)</span>
+                    </div>
+                    <div class="mb-6">
+                        <span class="text-2xl font-bold text-green-600">₹750</span>
+                        <span class="ml-2 text-gray-500 line-through">₹950</span>
+                        <span class="ml-2 text-green-600 font-medium">21% off</span>
+                    </div>
+                    <div class="mb-6">
+                        <h2 class="text-xl font-semibold mb-2">Description</h2>
+                        <p class="text-gray-600">Professional-grade pruning shears designed for precise plant trimming. These shears feature sharp, durable blades and ergonomic handles for comfortable use during extended gardening sessions.</p>
+                    </div>
+                    <div class="mb-6">
+                        <h2 class="text-xl font-semibold mb-2">Key Features</h2>
+                        <ul class="list-disc list-inside text-gray-600 space-y-1">
+                            <li>High-carbon steel blades for clean cuts</li>
+                            <li>Ergonomic non-slip handles</li>
+                            <li>Spring-loaded mechanism for reduced hand fatigue</li>
+                            <li>Safety lock mechanism</li>
+                            <li>Rust-resistant coating</li>
+                        </ul>
+                    </div>
+                    <div class="mb-6">
+                        <h2 class="text-xl font-semibold mb-2">Specifications</h2>
+                        <table class="w-full text-gray-600">
+                            <tr class="border-b">
+                                <td class="py-2 font-medium">Blade Material</td>
+                                <td class="py-2">High-carbon steel</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="py-2 font-medium">Handle Material</td>
+                                <td class="py-2">Thermoplastic rubber</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="py-2 font-medium">Blade Length</td>
+                                <td class="py-2">2.5 inches</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="py-2 font-medium">Weight</td>
+                                <td class="py-2">0.3 kg</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 font-medium">Warranty</td>
+                                <td class="py-2">3 years</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="flex space-x-4">
+                        <form action="../cart.php" method="POST" class="flex-grow">
+                            <input type="hidden" name="product_id" value="pruningshears1">
+                            <input type="hidden" name="product_name" value="Pruning Shears">
+                            <input type="hidden" name="product_price" value="750">
+                            <input type="hidden" name="product_image" value="../image/tractor.jpg">
+                            <button type="submit" name="add_to_cart" class="w-full bg-green-600 text-white py-3 rounded-lg hover:bg-green-700 transition duration-300 flex items-center justify-center">
+                                <i class="fas fa-shopping-cart mr-2"></i>Add to Cart
+                            </button>
+                        </form>
+                        <button class="bg-gray-200 text-gray-800 p-3 rounded-lg hover:bg-gray-300 transition duration-300">
+                            <i class="far fa-heart text-xl"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tabs Section -->
+            <div class="mt-16">
+                <div class="border-b mb-8">
+                    <div class="flex flex-wrap">
+                        <button class="tab-button active px-6 py-3 text-lg font-medium" data-tab="description">Description</button>
+                        <button class="tab-button px-6 py-3 text-lg font-medium" data-tab="specifications">Specifications</button>
+                        <button class="tab-button px-6 py-3 text-lg font-medium" data-tab="reviews">Reviews</button>
+                        <button class="tab-button px-6 py-3 text-lg font-medium" data-tab="shipping">Shipping</button>
+                    </div>
+                </div>
+
+                <!-- Description Tab -->
+                <div id="description" class="tab-content active">
+                    <h2 class="text-2xl font-bold mb-4">Product Description</h2>
+                    <div class="prose max-w-none text-gray-600">
+                        <p>Our professional-grade pruning shears are designed for gardeners, farmers, and horticulturalists who demand precision and durability in their tools. These shears feature high-carbon steel blades that maintain their sharpness even after extensive use, ensuring clean cuts that promote healthy plant growth.</p>
+                        
+                        <p>The ergonomic handles are crafted from thermoplastic rubber, providing a comfortable, non-slip grip that reduces hand fatigue during extended use. The spring-loaded mechanism automatically opens the shears after each cut, making repetitive pruning tasks more efficient and less strenuous.</p>
+                        
+                        <p>Whether you're trimming delicate flowers, pruning fruit trees, or maintaining ornamental shrubs, these pruning shears deliver the precision and control you need. The safety lock mechanism allows you to securely store the shears when not in use, preventing accidental cuts.</p>
+                        
+                        <h3 class="text-xl font-semibold mt-6 mb-3">How to Use</h3>
+                        <p>To use the pruning shears effectively:</p>
+                        <ol class="list-decimal list-inside space-y-2">
+                            <li>Position the blades around the stem or branch you want to cut</li>
+                            <li>Squeeze the handles firmly to make a clean cut</li>
+                            <li>Release the handles to allow the spring mechanism to open the blades</li>
+                            <li>For thicker branches, make multiple cuts or use a larger pruning tool</li>
+                        </ol>
+                        
+                        <h3 class="text-xl font-semibold mt-6 mb-3">Maintenance</h3>
+                        <p>To ensure your pruning shears last for many seasons:</p>
+                        <ul class="list-disc list-inside space-y-2">
+                            <li>Clean the blades after each use with a damp cloth</li>
+                            <li>Apply a light coat of oil to the blades and pivot point occasionally</li>
+                            <li>Store in a dry location away from direct sunlight</li>
+                            <li>Sharpen the blades when they begin to dull</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Specifications Tab -->
+                <div id="specifications" class="tab-content">
+                    <h2 class="text-2xl font-bold mb-4">Technical Specifications</h2>
+                    <table class="w-full border-collapse">
+                        <tr class="border-b">
+                            <th class="py-3 px-4 text-left bg-gray-50">Specification</th>
+                            <th class="py-3 px-4 text-left bg-gray-50">Details</th>
+                        </tr>
+                        <tr class="border-b">
+                            <td class="py-3 px-4 font-medium">Blade Material</td>
+                            <td class="py-3 px-4">High-carbon steel with non-stick coating</td>
+                        </tr>
+                        <tr class="border-b">
+                            <td class="py-3 px-4 font-medium">Handle Material</td>
+                            <td class="py-3 px-4">Thermoplastic rubber with anti-slip grip</td>
+                        </tr>
+                        <tr class="border-b">
+                            <td class="py-3 px-4 font-medium">Blade Length</td>
+                            <td class="py-3 px-4">2.5 inches (6.35 cm)</td>
+                        </tr>
+                        <tr class="border-b">
+                            <td class="py-3 px-4 font-medium">Handle Length</td>
+                            <td class="py-3 px-4">8 inches (20.32 cm)</td>
+                        </tr>
+                        <tr class="border-b">
+                            <td class="py-3 px-4 font-medium">Maximum Cutting Capacity</td>
+                            <td class="py-3 px-4">3/4 inch (1.9 cm) diameter</td>
+                        </tr>
+                        <tr class="border-b">
+                            <td class="py-3 px-4 font-medium">Weight</td>
+                            <td class="py-3 px-4">0.3 kg (0.66 lbs)</td>
+                        </tr>
+                        <tr class="border-b">
+                            <td class="py-3 px-4 font-medium">Finish</td>
+                            <td class="py-3 px-4">Rust-resistant coating</td>
+                        </tr>
+                        <tr class="border-b">
+                            <td class="py-3 px-4 font-medium">Warranty</td>
+                            <td class="py-3 px-4">3 years limited warranty</td>
+                        </tr>
+                        <tr class="border-b">
+                            <td class="py-3 px-4 font-medium">Country of Origin</td>
+                            <td class="py-3 px-4">India</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3 px-4 font-medium">Certification</td>
+                            <td class="py-3 px-4">ISO 9001:2015</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!-- Reviews Tab -->
+                <div id="reviews" class="tab-content">
+                    <h2 class="text-2xl font-bold mb-4">Customer Reviews</h2>
+                    <div class="mb-8">
+                        <div class="flex items-center mb-2">
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="ml-2 text-gray-600">4.8 out of 5</span>
+                        </div>
+                        <p class="text-gray-600">Based on 112 customer reviews</p>
+                    </div>
+
+                    <div class="space-y-6">
+                        <!-- Review 1 -->
+                        <div class="border-b pb-6">
+                            <div class="flex items-center mb-2">
+                                <div class="flex text-yellow-400">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span class="ml-2 font-medium">Neha Verma</span>
+                                <span class="ml-auto text-gray-500 text-sm">3 days ago</span>
+                            </div>
+                            <h3 class="font-semibold mb-2">Perfect for my garden</h3>
+                            <p class="text-gray-600">These pruning shears are excellent! They cut through branches cleanly without crushing them, which is important for plant health. The handles are comfortable even during long pruning sessions, and the spring mechanism works smoothly. Highly recommend!</p>
+                        </div>
+
+                        <!-- Review 2 -->
+                        <div class="border-b pb-6">
+                            <div class="flex items-center mb-2">
+                                <div class="flex text-yellow-400">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span class="ml-2 font-medium">Rajesh Kumar</span>
+                                <span class="ml-auto text-gray-500 text-sm">1 week ago</span>
+                            </div>
+                            <h3 class="font-semibold mb-2">Professional quality at affordable price</h3>
+                            <p class="text-gray-600">I've used many pruning shears in my landscaping business, and these are among the best I've found. The blades stay sharp, and the handles provide excellent grip even when wet. The safety lock is a nice feature for storage. Great value for money!</p>
+                        </div>
+
+                        <!-- Review 3 -->
+                        <div class="border-b pb-6">
+                            <div class="flex items-center mb-2">
+                                <div class="flex text-yellow-400">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <span class="ml-2 font-medium">Anita Patel</span>
+                                <span class="ml-auto text-gray-500 text-sm">2 weeks ago</span>
+                            </div>
+                            <h3 class="font-semibold mb-2">Good for small to medium branches</h3>
+                            <p class="text-gray-600">These shears work well for pruning small to medium-sized branches. The handles are comfortable, and the blades cut cleanly. However, they struggle with thicker branches (over 3/4 inch), so you'll need a larger tool for those. Overall, a good product for most pruning needs.</p>
+                        </div>
+
+                        <!-- Review Form -->
+                        <div class="mt-8">
+                            <h3 class="text-xl font-semibold mb-4">Write a Review</h3>
+                            <form class="space-y-4">
+                                <div>
+                                    <label class="block text-gray-700 mb-2">Rating</label>
+                                    <div class="flex space-x-2">
+                                        <button type="button" class="text-2xl text-gray-300 hover:text-yellow-400"><i class="far fa-star"></i></button>
+                                        <button type="button" class="text-2xl text-gray-300 hover:text-yellow-400"><i class="far fa-star"></i></button>
+                                        <button type="button" class="text-2xl text-gray-300 hover:text-yellow-400"><i class="far fa-star"></i></button>
+                                        <button type="button" class="text-2xl text-gray-300 hover:text-yellow-400"><i class="far fa-star"></i></button>
+                                        <button type="button" class="text-2xl text-gray-300 hover:text-yellow-400"><i class="far fa-star"></i></button>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 mb-2">Title</label>
+                                    <input type="text" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 mb-2">Review</label>
+                                    <textarea class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" rows="4"></textarea>
+                                </div>
+                                <button type="submit" class="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition duration-300">Submit Review</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Shipping Tab -->
+                <div id="shipping" class="tab-content">
+                    <h2 class="text-2xl font-bold mb-4">Shipping Information</h2>
+                    <div class="prose max-w-none text-gray-600">
+                        <h3 class="text-xl font-semibold mb-3">Delivery Options</h3>
+                        <ul class="list-disc list-inside space-y-2">
+                            <li>Standard Delivery: 3-5 business days (Free)</li>
+                            <li>Express Delivery: 1-2 business days (₹150)</li>
+                            <li>Same Day Delivery: Available in select areas (₹300)</li>
+                        </ul>
+
+                        <h3 class="text-xl font-semibold mt-6 mb-3">Shipping Policy</h3>
+                        <p>We ship to all major cities and towns across India. Delivery times may vary depending on your location. Once your order is placed, you will receive a confirmation email with tracking information.</p>
+                        
+                        <h3 class="text-xl font-semibold mt-6 mb-3">International Shipping</h3>
+                        <p>Currently, we only ship within India. International shipping options will be available soon.</p>
+                        
+                        <h3 class="text-xl font-semibold mt-6 mb-3">Returns & Exchanges</h3>
+                        <p>If you are not satisfied with your purchase, you may return it within 7 days of delivery for a full refund or exchange. The item must be unused and in its original packaging.</p>
+                        
+                        <h3 class="text-xl font-semibold mt-6 mb-3">Damaged Items</h3>
+                        <p>If your item arrives damaged, please contact our customer service team within 48 hours of delivery. We will arrange for a replacement at no additional cost.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Related Products -->
+            <div class="mt-16">
+                <h2 class="text-2xl font-bold mb-8">Related Products</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                    <!-- Related Product 1 -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                        <a href="garden-fork.html">
+                            <img src="../image/tractor.jpg" alt="Garden Fork" class="w-full h-48 object-cover">
+                        </a>
+                        <div class="p-6">
+                            <a href="garden-fork.html" class="hover:text-green-600">
+                                <h3 class="text-xl font-bold mb-2">Garden Fork</h3>
+                            </a>
+                            <p class="text-gray-600 mb-4">Sturdy fork for breaking up compacted soil</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-green-600 font-bold">₹1,200</span>
+                                <form action="../cart.php" method="POST">
+                                    <input type="hidden" name="product_id" value="gardenfork1">
+                                    <input type="hidden" name="product_name" value="Garden Fork">
+                                    <input type="hidden" name="product_price" value="1200">
+                                    <input type="hidden" name="product_image" value="../image/tractor.jpg">
+                                    <button type="submit" name="add_to_cart" class="bg-green-600 text-white px-4 py-2 rounded-full hover:bg-green-700 transition duration-300">
+                                        <i class="fas fa-shopping-cart mr-2"></i>Add to Cart
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Related Product 2 -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                        <a href="hand-cultivator.html">
+                            <img src="../image/tractor.jpg" alt="Hand Cultivator" class="w-full h-48 object-cover">
+                        </a>
+                        <div class="p-6">
+                            <a href="hand-cultivator.html" class="hover:text-green-600">
+                                <h3 class="text-xl font-bold mb-2">Hand Cultivator</h3>
+                            </a>
+                            <p class="text-gray-600 mb-4">Essential gardening tool for breaking up soil and removing weeds</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-green-600 font-bold">₹850</span>
+                                <form action="../cart.php" method="POST">
+                                    <input type="hidden" name="product_id" value="cultivator1">
+                                    <input type="hidden" name="product_name" value="Hand Cultivator">
+                                    <input type="hidden" name="product_price" value="850">
+                                    <input type="hidden" name="product_image" value="../image/tractor.jpg">
+                                    <button type="submit" name="add_to_cart" class="bg-green-600 text-white px-4 py-2 rounded-full hover:bg-green-700 transition duration-300">
+                                        <i class="fas fa-shopping-cart mr-2"></i>Add to Cart
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Related Product 3 -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                        <a href="spade.html">
+                            <img src="../image/tractor.jpg" alt="Spade" class="w-full h-48 object-cover">
+                        </a>
+                        <div class="p-6">
+                            <a href="spade.html" class="hover:text-green-600">
+                                <h3 class="text-xl font-bold mb-2">Spade</h3>
+                            </a>
+                            <p class="text-gray-600 mb-4">Durable spade for digging and soil turning</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-green-600 font-bold">₹950</span>
+                                <form action="../cart.php" method="POST">
+                                    <input type="hidden" name="product_id" value="spade1">
+                                    <input type="hidden" name="product_name" value="Spade">
+                                    <input type="hidden" name="product_price" value="950">
+                                    <input type="hidden" name="product_image" value="../image/tractor.jpg">
+                                    <button type="submit" name="add_to_cart" class="bg-green-600 text-white px-4 py-2 rounded-full hover:bg-green-700 transition duration-300">
+                                        <i class="fas fa-shopping-cart mr-2"></i>Add to Cart
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Related Product 4 -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                        <a href="hoe.html">
+                            <img src="../image/tractor.jpg" alt="Hoe" class="w-full h-48 object-cover">
+                        </a>
+                        <div class="p-6">
+                            <a href="hoe.html" class="hover:text-green-600">
+                                <h3 class="text-xl font-bold mb-2">Hoe</h3>
+                            </a>
+                            <p class="text-gray-600 mb-4">Versatile hoe for weeding and soil cultivation</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-green-600 font-bold">₹800</span>
+                                <form action="../cart.php" method="POST">
+                                    <input type="hidden" name="product_id" value="hoe1">
+                                    <input type="hidden" name="product_name" value="Hoe">
+                                    <input type="hidden" name="product_price" value="800">
+                                    <input type="hidden" name="product_image" value="../image/tractor.jpg">
+                                    <button type="submit" name="add_to_cart" class="bg-green-600 text-white px-4 py-2 rounded-full hover:bg-green-700 transition duration-300">
+                                        <i class="fas fa-shopping-cart mr-2"></i>Add to Cart
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2024 FarmEmpower. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Tab functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons and contents
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+                    
+                    // Add active class to clicked button and corresponding content
+                    this.classList.add('active');
+                    const tabId = this.getAttribute('data-tab');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+            
+            // Mobile menu toggle
+            const menuBtn = document.getElementById('menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            menuBtn.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            // Language dropdown
+            const langSelector = document.getElementById('lang-selector');
+            const langDropdown = document.getElementById('lang-dropdown');
+            
+            langSelector.addEventListener('click', function() {
+                langDropdown.classList.toggle('hidden');
+            });
+            
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!langSelector.contains(event.target)) {
+                    langDropdown.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+</body>
+</html> 

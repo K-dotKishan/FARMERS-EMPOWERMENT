@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spade - FarmEmpower</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .tab-button.active {
+            border-bottom: 3px solid #059669;
+            color: #059669;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-green-600 text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <a href="../index.html" class="flex items-center space-x-3">
+                    <div class="bg-white w-12 h-12 rounded-full flex items-center justify-center relative">
+                        <div class="absolute inset-0 bg-gradient-to-br from-green-400 to-green-600 rounded-full opacity-20"></div>
+                        <i class="fas fa-leaf text-2xl text-green-600 transform -rotate-12"></i>
+                        <i class="fas fa-seedling text-xl text-green-500 absolute -bottom-1 -right-1"></i>
+                    </div>
+                    <div class="flex flex-col">
+                        <div class="text-2xl font-bold tracking-wide">FarmEmpower</div>
+                        <div class="text-xs text-green-200">Growing Together</div>
+                    </div>
+                </a>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="../index.html" class="hover:text-green-200 transition duration-300 flex items-center">
+                    <i class="fas fa-home mr-2"></i>
+                    <span>Home</span>
+                </a>
+                <a href="../index.html#services" class="hover:text-green-200 transition duration-300 flex items-center">
+                    <i class="fas fa-cogs mr-2"></i>
+                    <span>Services</span>
+                </a>
+                <a href="../index.html#about" class="hover:text-green-200 transition duration-300 flex items-center">
+                    <i class="fas fa-info-circle mr-2"></i>
+                    <span>About</span>
+                </a>
+                <a href="../index.html#contact" class="hover:text-green-200 transition duration-300 flex items-center">
+                    <i class="fas fa-envelope mr-2"></i>
+                    <span>Contact</span>
+                </a>
+                <a href="../online-marketplace.php" class="hover:text-green-200 transition duration-300 flex items-center">
+                    <i class="fas fa-store mr-2"></i>
+                    <span>Marketplace</span>
+                </a>
+                <a href="../cart.php" class="hover:text-green-200 transition duration-300 flex items-center">
+                    <i class="fas fa-shopping-cart mr-2"></i>
+                    <span>Cart</span>
+                </a>
+                <div class="relative">
+                    <button id="lang-selector" class="hover:text-green-200 transition duration-300 flex items-center">
+                        <i class="fas fa-globe mr-2"></i>
+                        <span>English</span>
+                    </button>
+                    <div id="lang-dropdown" class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10 hidden">
+                        <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-green-100">English</a>
+                        <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-green-100">हिंदी</a>
+                        <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-green-100">ਪੰਜਾਬੀ</a>
+                    </div>
+                </div>
+            </div>
+            <button class="md:hidden" id="menu-btn">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="bg-green-600 text-white py-4 hidden md:hidden">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col space-y-4">
+                <a href="../index.html" class="hover:text-green-200 transition duration-300 flex items-center">
+                    <i class="fas fa-home mr-2"></i>
+                    <span>Home</span>
+                </a>
+                <a href="../index.html#services" class="hover:text-green-200 transition duration-300 flex items-center">
+                    <i class="fas fa-cogs mr-2"></i>
+                    <span>Services</span>
+                </a>
+                <a href="../index.html#about" class="hover:text-green-200 transition duration-300 flex items-center">
+                    <i class="fas fa-info-circle mr-2"></i>
+                    <span>About</span>
+                </a>
+                <a href="../index.html#contact" class="hover:text-green-200 transition duration-300 flex items-center">
+                    <i class="fas fa-envelope mr-2"></i>
+                    <span>Contact</span>
+                </a>
+                <a href="../online-marketplace.php" class="hover:text-green-200 transition duration-300 flex items-center">
+                    <i class="fas fa-store mr-2"></i>
+                    <span>Marketplace</span>
+                </a>
+                <a href="../cart.php" class="hover:text-green-200 transition duration-300 flex items-center">
+                    <i class="fas fa-shopping-cart mr-2"></i>
+                    <span>Cart</span>
+                </a>
+                <div class="pt-2 border-t border-green-500">
+                    <div class="flex items-center mb-2">
+                        <i class="fas fa-globe mr-2"></i>
+                        <span>Language</span>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2">
+                        <button class="lang-option bg-green-700 py-2 px-3 rounded hover:bg-green-800 transition duration-300">English</button>
+                        <button class="lang-option bg-green-700 py-2 px-3 rounded hover:bg-green-800 transition duration-300">हिंदी</button>
+                        <button class="lang-option bg-green-700 py-2 px-3 rounded hover:bg-green-800 transition duration-300">ਪੰਜਾਬੀ</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Breadcrumb -->
+    <div class="bg-gray-100 py-3">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center text-sm text-gray-600">
+                <a href="../index.html" class="hover:text-green-600">Home</a>
+                <i class="fas fa-chevron-right mx-2 text-xs"></i>
+                <a href="../online-marketplace.php" class="hover:text-green-600">Marketplace</a>
+                <i class="fas fa-chevron-right mx-2 text-xs"></i>
+                <a href="../online-marketplace.php?category=tools" class="hover:text-green-600">Tools & Equipment</a>
+                <i class="fas fa-chevron-right mx-2 text-xs"></i>
+                <span class="text-gray-800">Spade</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Detail Section -->
+    <section class="py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Product Gallery -->
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <div class="mb-6">
+                        <img src="../image/tractor.jpg" alt="Spade" class="w-full h-96 object-cover rounded-lg">
+                    </div>
+                </div>
+
+                <!-- Product Info -->
+                <div>
+                    <h1 class="text-3xl font-bold mb-2">Spade</h1>
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <span class="ml-2 text-gray-600">(4.5/5 from 82 reviews)</span>
+                    </div>
+                    <div class="mb-6">
+                        <span class="text-2xl font-bold text-green-600">₹950</span>
+                        <span class="ml-2 text-gray-500 line-through">₹1,200</span>
+                        <span class="ml-2 text-green-600 font-medium">21% off</span>
+                    </div>
+                    <div class="mb-6">
+                        <h2 class="text-xl font-semibold mb-2">Description</h2>
+                        <p class="text-gray-600">Professional-grade spade with tempered steel blade and ergonomic handle. Perfect for digging, soil turning, and garden maintenance.</p>
+                    </div>
+                    <div class="mb-6">
+                        <h2 class="text-xl font-semibold mb-2">Key Features</h2>
+                        <ul class="list-disc list-inside text-gray-600 space-y-1">
+                            <li>Tempered steel blade</li>
+                            <li>Ergonomic handle with anti-slip grip</li>
+                            <li>Reinforced foot plate</li>
+                            <li>Rust-resistant coating</li>
+                            <li>Balanced design for efficient use</li>
+                        </ul>
+                    </div>
+                    <div class="mb-6">
+                        <h2 class="text-xl font-semibold mb-2">Specifications</h2>
+                        <table class="w-full text-gray-600">
+                            <tr class="border-b">
+                                <td class="py-2 font-medium">Blade Length</td>
+                                <td class="py-2">30 cm</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="py-2 font-medium">Handle Length</td>
+                                <td class="py-2">90 cm</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="py-2 font-medium">Material</td>
+                                <td class="py-2">Tempered steel</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="py-2 font-medium">Weight</td>
+                                <td class="py-2">1.2 kg</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="flex space-x-4">
+                        <form action="../cart.php" method="POST" class="flex-1">
+                            <input type="hidden" name="product_id" value="spade1">
+                            <input type="hidden" name="product_name" value="Spade">
+                            <input type="hidden" name="product_price" value="950">
+                            <input type="hidden" name="product_image" value="image/tractor.jpg">
+                            <button type="submit" name="add_to_cart" class="w-full bg-green-600 text-white px-6 py-3 rounded-full font-bold hover:bg-green-700 transition duration-300">
+                                <i class="fas fa-shopping-cart mr-2"></i>Add to Cart
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Tabs -->
+            <div class="mt-12 bg-white rounded-xl shadow-lg p-6">
+                <div class="flex border-b mb-6 overflow-x-auto">
+                    <button class="tab-button active px-4 py-2 font-medium text-gray-700 border-b-2 border-green-500" data-tab="description">Description</button>
+                    <button class="tab-button px-4 py-2 font-medium text-gray-500 hover:text-gray-700" data-tab="specifications">Specifications</button>
+                    <button class="tab-button px-4 py-2 font-medium text-gray-500 hover:text-gray-700" data-tab="reviews">Reviews</button>
+                    <button class="tab-button px-4 py-2 font-medium text-gray-500 hover:text-gray-700" data-tab="shipping">Shipping</button>
+                </div>
+                
+                <div id="description" class="tab-content active">
+                    <h3 class="text-xl font-semibold mb-4">Product Description</h3>
+                    <p class="text-gray-600 mb-4">Our professional-grade spade is designed for durability and efficiency in all your gardening and farming tasks. The tempered steel blade ensures long-lasting performance, while the ergonomic handle with anti-slip grip provides comfort during extended use.</p>
+                    <p class="text-gray-600 mb-4">The reinforced foot plate allows for easy digging even in compacted soil, and the rust-resistant coating protects the tool from the elements. The balanced design reduces fatigue during use, making it perfect for both professional farmers and home gardeners.</p>
+                    <p class="text-gray-600">This spade is ideal for digging, turning soil, creating planting holes, and general garden maintenance. It's a versatile tool that should be part of every gardener's collection.</p>
+                </div>
+                
+                <div id="specifications" class="tab-content">
+                    <h3 class="text-xl font-semibold mb-4">Technical Specifications</h3>
+                    <table class="w-full text-gray-600">
+                        <tr class="border-b">
+                            <td class="py-2 font-medium">Blade Length</td>
+                            <td class="py-2">30 cm</td>
+                        </tr>
+                        <tr class="border-b">
+                            <td class="py-2 font-medium">Handle Length</td>
+                            <td class="py-2">90 cm</td>
+                        </tr>
+                        <tr class="border-b">
+                            <td class="py-2 font-medium">Material</td>
+                            <td class="py-2">Tempered steel</td>
+                        </tr>
+                        <tr class="border-b">
+                            <td class="py-2 font-medium">Weight</td>
+                            <td class="py-2">1.2 kg</td>
+                        </tr>
+                        <tr class="border-b">
+                            <td class="py-2 font-medium">Handle Material</td>
+                            <td class="py-2">Hardwood with rubber grip</td>
+                        </tr>
+                        <tr class="border-b">
+                            <td class="py-2 font-medium">Blade Thickness</td>
+                            <td class="py-2">3 mm</td>
+                        </tr>
+                        <tr class="border-b">
+                            <td class="py-2 font-medium">Warranty</td>
+                            <td class="py-2">5 years</td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <div id="reviews" class="tab-content">
+                    <h3 class="text-xl font-semibold mb-4">Customer Reviews</h3>
+                    <div class="flex items-center mb-6">
+                        <div class="flex text-yellow-400 mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <span class="text-gray-600">4.5 out of 5 (82 reviews)</span>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <div class="border-b pb-4">
+                            <div class="flex items-center mb-2">
+                                <div class="flex text-yellow-400 mr-2">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span class="font-medium">Rahul S.</span>
+                                <span class="text-gray-500 text-sm ml-2">2 days ago</span>
+                            </div>
+                            <p class="text-gray-600">Excellent quality spade! The blade is sharp and durable, and the handle is comfortable to use. I've been using it for my garden for the past month and it's holding up well.</p>
+                        </div>
+                        
+                        <div class="border-b pb-4">
+                            <div class="flex items-center mb-2">
+                                <div class="flex text-yellow-400 mr-2">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <span class="font-medium">Priya M.</span>
+                                <span class="text-gray-500 text-sm ml-2">1 week ago</span>
+                            </div>
+                            <p class="text-gray-600">Good spade for the price. The handle is a bit slippery when wet, but overall it's a solid tool. Would recommend for light to medium gardening tasks.</p>
+                        </div>
+                        
+                        <div class="border-b pb-4">
+                            <div class="flex items-center mb-2">
+                                <div class="flex text-yellow-400 mr-2">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <span class="font-medium">Amit K.</span>
+                                <span class="text-gray-500 text-sm ml-2">2 weeks ago</span>
+                            </div>
+                            <p class="text-gray-600">I'm a professional gardener and this spade meets my requirements. The blade stays sharp and the handle is ergonomic. The only minor issue is that the rubber grip started to peel after heavy use.</p>
+                        </div>
+                    </div>
+                    
+                    <button class="mt-4 bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition duration-300">
+                        Write a Review
+                    </button>
+                </div>
+                
+                <div id="shipping" class="tab-content">
+                    <h3 class="text-xl font-semibold mb-4">Shipping Information</h3>
+                    <div class="space-y-4">
+                        <div class="border-b pb-4">
+                            <h4 class="font-medium text-lg mb-2">Delivery Options</h4>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li>Standard Delivery: 3-5 business days (Free)</li>
+                                <li>Express Delivery: 1-2 business days (₹150)</li>
+                                <li>Same Day Delivery: Available in select areas (₹300)</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="border-b pb-4">
+                            <h4 class="font-medium text-lg mb-2">Shipping Policy</h4>
+                            <p class="text-gray-600 mb-2">We ship to all major cities and towns across India. Delivery times may vary based on your location.</p>
+                            <p class="text-gray-600">For remote areas, delivery may take an additional 2-3 business days.</p>
+                        </div>
+                        
+                        <div class="border-b pb-4">
+                            <h4 class="font-medium text-lg mb-2">Tracking</h4>
+                            <p class="text-gray-600">Once your order is shipped, you will receive a tracking number via email and SMS to track your delivery status.</p>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-medium text-lg mb-2">Returns & Refunds</h4>
+                            <p class="text-gray-600">If you're not satisfied with your purchase, you can return it within 7 days of delivery for a full refund or replacement.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Related Products -->
+            <div class="mt-16">
+                <h2 class="text-2xl font-bold mb-6">Related Products</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                    <!-- Hoe -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                        <a href="hoe.html">
+                            <img src="../image/tractor.jpg" alt="Hoe" class="w-full h-48 object-cover">
+                        </a>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Hoe</h3>
+                            <p class="text-gray-600 mb-4">Versatile hoe for weeding and cultivation</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-green-600 font-bold">₹800</span>
+                                <a href="hoe.html" class="text-green-600 hover:text-green-700">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Rake -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                        <a href="rake.html">
+                            <img src="../image/tractor.jpg" alt="Rake" class="w-full h-48 object-cover">
+                        </a>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Rake</h3>
+                            <p class="text-gray-600 mb-4">Professional rake for soil leveling</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-green-600 font-bold">₹750</span>
+                                <a href="rake.html" class="text-green-600 hover:text-green-700">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Watering Can -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                        <a href="watering-can.html">
+                            <img src="../image/tractor.jpg" alt="Watering Can" class="w-full h-48 object-cover">
+                        </a>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Watering Can</h3>
+                            <p class="text-gray-600 mb-4">Professional watering can with rose nozzle</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-green-600 font-bold">₹600</span>
+                                <a href="watering-can.html" class="text-green-600 hover:text-green-700">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2024 FarmEmpower. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('menu-btn').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Tab functionality
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const tabContents = document.querySelectorAll('.tab-content');
+        
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const tabId = button.getAttribute('data-tab');
+                
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+                
+                button.classList.add('active');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html> 
