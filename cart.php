@@ -21,7 +21,7 @@ if (isset($_POST['add_to_cart'])) {
         'image' => $product_image
     );
     
-    // Redirect back to marketplace
+    // Redirect back to marketplaces
     header('Location: online-marketplace.php');
     exit();
 }
